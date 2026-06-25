@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)file:///C:/Users/rj/Downloads/nova-cafe.html -->
+<html lang="fa" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="نوا کافه — تجربه‌ای متفاوت در قلب تهران. قهوه تخصصی، دسرهای لوکس و فضایی برای لحظه‌های به‌یادماندنی.">
+<title>NOVA Café — نوا کافه تهران</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="./index_files/css2" rel="stylesheet">
+<style>
+:root {
+  --bg: #080604;
+  --bg2: #0e0b07;
+  --gold: #c8a96e;
+  --gold2: #e8c87a;
+  --gold-dim: rgba(200,169,110,0.12);
+  --gold-border: rgba(200,169,110,0.18);
+  --text: #f0e8d8;
+  --text-dim: rgba(240,232,216,0.45);
+  --text-faint: rgba(240,232,216,0.2);
+  --glass: rgba(255,255,255,0.03);
+  --glass-border: rgba(255,255,255,0.07);
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { background:var(--bg); color:var(--text); font-family:'Vazirmatn',sans-serif; overflow-x:hidden; }
+img { max-width:100%; display:block; }
+a { text-decoration:none; color:inherit; }
+button { cursor:pointer; font-family:'Vazirmatn',sans-serif; }
+
+/* ─── SCROLLBAR ─────────────────────── */
+::-webkit-scrollbar { width:4px; }
+::-webkit-scrollbar-track { background:var(--bg); }
+::-webkit-scrollbar-thumb { background:var(--gold-border); border-radius:2px; }
+
+/* ─── LOADER ─────────────────────────── */
+#loader {
+  position:fixed; inset:0; z-index:9999;
+  background:var(--bg);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:20px; transition:opacity .6s, visibility .6s;
+}
+#loader.hide { opacity:0; visibility:hidden; }
+.loader-logo { font-size:48px; font-weight:900; color:var(--gold); letter-spacing:8px; }
+.loader-bar { width:120px; height:1px; background:var(--glass-border); position:relative; overflow:hidden; }
+.loader-bar::after {
+  content:''; position:absolute; inset:0;
+  background:var(--gold);
+  animation:loadbar 1.4s ease forwards;
+}
+@keyframes loadbar { from{transform:translateX(100%)} to{transform:translateX(0)} }
+
+/* ─── NAV ────────────────────────────── */
+#nav {
+  position:fixed; top:0; width:100%; z-index:100;
+  padding:24px 64px;
+  display:flex; align-items:center; justify-content:space-between;
+  transition:all .4s;
+}
+#nav.stuck {
+  padding:16px 64px;
+  background:rgba(8,6,4,0.92);
+  backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--gold-border);
+}
+.nav-logo { display:flex; flex-direction:column; align-items:flex-end; }
+.nav-logo-en { font-size:22px; font-weight:900; letter-spacing:6px; color:var(--gold); }
+.nav-logo-fa { font-size:10px; letter-spacing:4px; color:rgba(200,169,110,0.4); margin-top:-2px; }
+.nav-links { display:flex; gap:36px; list-style:none; }
+.nav-links a { font-size:13px; letter-spacing:2px; color:var(--text-dim); transition:color .2s; }
+.nav-links a:hover { color:var(--gold); }
+.nav-btn {
+  border:1px solid var(--gold-border); color:var(--gold);
+  padding:10px 26px; font-size:12px; font-weight:600; letter-spacing:3px;
+  background:transparent; transition:all .3s;
+}
+.nav-btn:hover { background:var(--gold-dim); }
+.nav-burger { display:none; flex-direction:column; gap:5px; background:none; border:none; }
+.nav-burger span { width:24px; height:1px; background:var(--gold); display:block; transition:all .3s; }
+
+/* ─── MOBILE NAV ─────────────────────── */
+#mobile-nav {
+  display:none; position:fixed; inset:0; z-index:99;
+  background:rgba(8,6,4,0.98); backdrop-filter:blur(20px);
+  flex-direction:column; align-items:center; justify-content:center; gap:32px;
+}
+#mobile-nav.open { display:flex; }
+#mobile-nav a { font-size:28px; font-weight:700; letter-spacing:3px; color:var(--text-dim); transition:color .2s; }
+#mobile-nav a:hover { color:var(--gold); }
+.mobile-close { position:absolute; top:24px; left:24px; background:none; border:none; color:var(--gold); font-size:24px; }
+
+/* ─── HERO ───────────────────────────── */
+.hero {
+  min-height:100vh; position:relative;
+  display:flex; flex-direction:column; justify-content:flex-end;
+  padding:0 64px 80px;
+  overflow:hidden;
+}
+.hero-visual {
+  position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse at 65% 35%, rgba(160,100,30,0.28) 0%, transparent 60%),
+    radial-gradient(ellipse at 30% 70%, rgba(100,60,10,0.18) 0%, transparent 50%),
+    linear-gradient(to top, rgba(8,6,4,1) 0%, rgba(8,6,4,0.55) 50%, rgba(8,6,4,0.25) 100%);
+}
+.hero-noise {
+  position:absolute; inset:0; opacity:.025;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:200px;
+}
+.hero-img {
+  position:absolute; inset:0; z-index:-1;
+  background:
+    url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1600&q=80') center/cover no-repeat;
+  filter:brightness(.35) saturate(.8);
+}
+.hero-eyebrow { display:flex; align-items:center; gap:14px; margin-bottom:20px; }
+.hero-eyebrow-line { width:40px; height:1px; background:var(--gold); opacity:.6; }
+.hero-eyebrow span { font-size:11px; letter-spacing:5px; color:rgba(200,169,110,.6); text-transform:uppercase; }
+.hero h1 {
+  font-size:clamp(56px,9vw,108px); font-weight:900;
+  line-height:.95; letter-spacing:-3px;
+  color:var(--text); margin-bottom:28px;
+}
+.hero h1 .gold { color:var(--gold); display:block; }
+.hero-sub {
+  max-width:460px; font-size:16px; line-height:2;
+  color:var(--text-dim); font-weight:300; margin-bottom:48px;
+  letter-spacing:.3px;
+}
+.hero-cta { display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
+.btn-fill {
+  background:var(--gold); color:var(--bg);
+  padding:16px 40px; font-size:13px; font-weight:700; letter-spacing:3px;
+  border:none; transition:all .3s;
+}
+.btn-fill:hover { background:var(--gold2); transform:translateY(-2px); box-shadow:0 12px 40px rgba(200,169,110,.28); }
+.btn-outline {
+  background:transparent; border:1px solid rgba(240,232,216,.2);
+  color:var(--text-dim); padding:16px 40px;
+  font-size:13px; font-weight:400; letter-spacing:3px; transition:all .3s;
+}
+.btn-outline:hover { border-color:var(--gold-border); color:var(--gold); }
+.hero-scroll {
+  position:absolute; bottom:32px; left:64px;
+  display:flex; align-items:center; gap:12px;
+  color:var(--text-faint); font-size:11px; letter-spacing:3px;
+  animation:float 3s ease-in-out infinite;
+}
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+.hero-scroll-line { width:40px; height:1px; background:var(--text-faint); }
+.hero-stats {
+  position:absolute; left:64px; top:50%;
+  transform:translateY(-50%);
+  display:flex; flex-direction:column; gap:28px;
+}
+.hero-stat-item { text-align:center; }
+.hero-stat-n { font-size:26px; font-weight:900; color:var(--gold); letter-spacing:-1px; line-height:1; }
+.hero-stat-l { font-size:10px; letter-spacing:3px; color:var(--text-faint); margin-top:4px; text-transform:uppercase; }
+.hero-stat-div { width:1px; height:24px; background:var(--glass-border); margin:0 auto; }
+
+/* ─── MARQUEE ────────────────────────── */
+.marquee-wrap { overflow:hidden; border-top:1px solid var(--gold-border); border-bottom:1px solid var(--gold-border); padding:18px 0; background:rgba(200,169,110,.03); }
+.marquee-track { display:flex; gap:0; animation:marquee 28s linear infinite; white-space:nowrap; }
+.marquee-item { display:flex; align-items:center; gap:20px; padding:0 32px; font-size:12px; letter-spacing:4px; color:rgba(200,169,110,.4); text-transform:uppercase; flex-shrink:0; }
+.marquee-dot { width:4px; height:4px; border-radius:50%; background:var(--gold); flex-shrink:0; }
+@keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+/* ─── SECTION SHARED ─────────────────── */
+section { padding:120px 64px; }
+.sec-eyebrow { display:flex; align-items:center; gap:14px; margin-bottom:18px; }
+.sec-eyebrow-line { width:32px; height:1px; background:var(--gold); opacity:.6; flex-shrink:0; }
+.sec-eyebrow span { font-size:11px; letter-spacing:5px; color:rgba(200,169,110,.55); text-transform:uppercase; }
+.sec-title { font-size:clamp(32px,4.5vw,52px); font-weight:900; letter-spacing:-1.5px; line-height:1.05; color:var(--text); margin-bottom:16px; }
+.sec-sub { font-size:15px; color:var(--text-dim); line-height:2; font-weight:300; max-width:480px; }
+
+/* ─── STORY ──────────────────────────── */
+.story-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:100px; align-items:center; }
+.story-visual { position:relative; }
+.story-img-main {
+  width:100%; aspect-ratio:4/5; border-radius:2px;
+  background:url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&q=80') center/cover;
+  filter:brightness(.75) saturate(.85);
+}
+.story-img-accent {
+  position:absolute; width:55%; aspect-ratio:1; bottom:-32px; left:-32px;
+  border-radius:2px;
+  background:url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=80') center/cover;
+  filter:brightness(.7) saturate(.8);
+  border:4px solid var(--bg);
+}
+.story-badge {
+  position:absolute; top:24px; right:24px;
+  background:rgba(8,6,4,.85); backdrop-filter:blur(12px);
+  border:1px solid var(--gold-border);
+  padding:16px 20px; text-align:center;
+}
+.story-badge-n { font-size:28px; font-weight:900; color:var(--gold); letter-spacing:-1px; line-height:1; }
+.story-badge-l { font-size:10px; letter-spacing:3px; color:var(--text-faint); margin-top:4px; }
+.story-text { }
+.story-text p { font-size:15px; color:var(--text-dim); line-height:2.1; font-weight:300; margin-top:24px; }
+.story-text p + p { margin-top:16px; }
+.story-divider { width:48px; height:1px; background:var(--gold-border); margin:32px 0; }
+.story-values { display:flex; gap:32px; }
+.story-val-item .label { font-size:11px; letter-spacing:3px; color:var(--gold); text-transform:uppercase; margin-bottom:6px; }
+.story-val-item .desc { font-size:13px; color:var(--text-faint); font-weight:300; }
+
+/* ─── MENU PREVIEW ───────────────────── */
+.menu-preview { background:var(--bg2); }
+.menu-preview-inner { max-width:1100px; margin:0 auto; }
+.menu-tabs { display:flex; gap:0; border-bottom:1px solid var(--glass-border); margin:48px 0 40px; overflow-x:auto; }
+.mtab {
+  padding:12px 28px; font-size:12px; letter-spacing:3px;
+  color:var(--text-faint); background:none;
+  border:none; border-bottom:2px solid transparent;
+  transition:all .2s; white-space:nowrap;
+}
+.mtab:hover { color:var(--text-dim); }
+.mtab.on { color:var(--gold); border-bottom-color:var(--gold); }
+.menu-panel { display:none; }
+.menu-panel.on { display:grid; grid-template-columns:1fr 1fr; gap:0; }
+.menu-row {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:20px 4px; border-bottom:1px solid var(--glass-border);
+  gap:16px; transition:all .25s; position:relative;
+}
+.menu-row::after {
+  content:''; position:absolute; right:0; bottom:0;
+  width:0; height:1px; background:var(--gold); transition:width .3s;
+}
+.menu-row:hover::after { width:100%; }
+.menu-row:hover { padding-right:12px; }
+.menu-row-r { display:flex; align-items:center; gap:12px; }
+.menu-idx { font-size:11px; color:rgba(200,169,110,.25); font-weight:300; min-width:22px; }
+.menu-row-info h4 { font-size:14px; font-weight:600; color:var(--text); margin-bottom:3px; }
+.menu-row-info p { font-size:12px; color:var(--text-faint); font-weight:300; }
+.menu-row-l { display:flex; align-items:center; gap:12px; flex-shrink:0; }
+.menu-badge { font-size:10px; letter-spacing:1px; padding:3px 8px; font-weight:500; }
+.badge-gold { background:rgba(200,169,110,.1); color:var(--gold); border:1px solid rgba(200,169,110,.2); }
+.badge-red { background:rgba(220,80,60,.1); color:#e87a6a; border:1px solid rgba(220,80,60,.2); }
+.menu-price { font-size:13px; font-weight:700; color:var(--gold); white-space:nowrap; }
+.menu-footer { margin-top:48px; text-align:center; }
+
+/* ─── SPECIALS ───────────────────────── */
+.specials-inner { max-width:1100px; margin:0 auto; }
+.specials-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:56px; }
+.special-card {
+  position:relative; overflow:hidden; border:1px solid var(--glass-border);
+  background:var(--glass); transition:all .4s; cursor:default;
+}
+.special-card:hover { border-color:var(--gold-border); transform:translateY(-4px); }
+.special-card-img {
+  width:100%; aspect-ratio:3/4;
+  filter:brightness(.55) saturate(.75); transition:filter .4s, transform .4s;
+}
+.special-card:hover .special-card-img { filter:brightness(.7) saturate(.9); transform:scale(1.04); }
+.special-card-img.s1 { background:url('https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&q=80') center/cover; }
+.special-card-img.s2 { background:url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=80') center/cover; }
+.special-card-img.s3 { background:url('https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&q=80') center/cover; }
+.special-card-body {
+  position:absolute; bottom:0; left:0; right:0;
+  padding:28px 24px;
+  background:linear-gradient(to top, rgba(8,6,4,.97) 0%, rgba(8,6,4,.7) 70%, transparent 100%);
+}
+.special-cat { font-size:10px; letter-spacing:4px; color:var(--gold); text-transform:uppercase; margin-bottom:8px; }
+.special-name { font-size:18px; font-weight:800; color:var(--text); margin-bottom:6px; letter-spacing:-.3px; }
+.special-desc { font-size:12px; color:var(--text-faint); font-weight:300; line-height:1.7; margin-bottom:14px; }
+.special-price { font-size:15px; font-weight:700; color:var(--gold); }
+
+/* ─── TESTIMONIALS ───────────────────── */
+.testimonials { background:var(--bg2); }
+.testimonials-inner { max-width:1100px; margin:0 auto; }
+.testi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:56px; }
+.testi-card {
+  padding:36px 32px; border:1px solid var(--glass-border);
+  background:var(--glass); transition:all .3s;
+}
+.testi-card:hover { border-color:var(--gold-border); background:rgba(200,169,110,.04); }
+.testi-q { font-size:48px; line-height:.8; color:rgba(200,169,110,.12); font-family:Georgia,serif; margin-bottom:20px; }
+.testi-text { font-size:14px; color:rgba(240,232,216,.55); line-height:2.1; font-weight:300; margin-bottom:28px; }
+.testi-author { display:flex; align-items:center; gap:12px; }
+.testi-av {
+  width:40px; height:40px; border-radius:50%; flex-shrink:0;
+  background:var(--gold-dim); border:1px solid var(--gold-border);
+  display:flex; align-items:center; justify-content:center;
+  font-size:13px; font-weight:700; color:var(--gold);
+}
+.testi-name { font-size:13px; font-weight:600; color:var(--text); }
+.testi-role { font-size:11px; color:var(--text-faint); margin-top:2px; letter-spacing:1px; }
+.testi-stars { font-size:11px; color:var(--gold); letter-spacing:2px; margin-top:4px; }
+
+/* ─── GALLERY ────────────────────────── */
+.gallery-inner { max-width:1100px; margin:0 auto; }
+.gallery-grid { columns:4; gap:12px; margin-top:56px; }
+.gallery-item {
+  break-inside:avoid; margin-bottom:12px; overflow:hidden;
+  position:relative; cursor:pointer;
+}
+.gallery-item img {
+  width:100%; display:block; filter:brightness(.65) saturate(.75);
+  transition:filter .4s, transform .5s;
+}
+.gallery-item:hover img { filter:brightness(.85) saturate(1); transform:scale(1.04); }
+.gallery-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(8,6,4,.8) 0%, transparent 60%);
+  opacity:0; transition:opacity .3s;
+  display:flex; align-items:flex-end; padding:16px;
+}
+.gallery-item:hover .gallery-overlay { opacity:1; }
+.gallery-overlay span { font-size:12px; letter-spacing:2px; color:var(--gold); text-transform:uppercase; }
+
+/* ─── RESERVATION ────────────────────── */
+.reservation { background:var(--bg2); }
+.reservation-inner { max-width:700px; margin:0 auto; text-align:center; }
+.res-form { margin-top:52px; display:grid; grid-template-columns:1fr 1fr; gap:12px; text-align:right; }
+.res-form input, .res-form select {
+  background:rgba(255,255,255,.03);
+  border:1px solid var(--glass-border);
+  padding:15px 18px; color:var(--text);
+  font-size:14px; font-family:'Vazirmatn',sans-serif;
+  outline:none; transition:border .2s; direction:rtl;
+}
+.res-form input:focus, .res-form select:focus { border-color:var(--gold-border); }
+.res-form input::placeholder { color:var(--text-faint); }
+.res-form select { color:var(--text-dim); }
+.res-form select option { background:var(--bg); }
+.form-full { grid-column:1/-1; }
+.res-note { font-size:12px; color:var(--text-faint); margin-top:16px; letter-spacing:1px; }
+
+/* ─── INFO ROW ───────────────────────── */
+.info-row { padding:80px 64px; border-top:1px solid var(--glass-border); }
+.info-row-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:repeat(3,1fr); gap:48px; }
+.info-block h4 { font-size:11px; letter-spacing:4px; color:var(--gold); text-transform:uppercase; margin-bottom:16px; }
+.info-block p, .info-block a { font-size:14px; color:var(--text-faint); line-height:2.2; font-weight:300; display:block; transition:color .2s; }
+.info-block a:hover { color:var(--gold); }
+
+/* ─── FOOTER ─────────────────────────── */
+footer {
+  padding:56px 64px;
+  border-top:1px solid var(--glass-border);
+  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;
+}
+.footer-logo-en { font-size:20px; font-weight:900; letter-spacing:6px; color:var(--gold); }
+.footer-logo-fa { font-size:10px; letter-spacing:3px; color:rgba(200,169,110,.3); margin-top:2px; }
+footer p { font-size:12px; color:var(--text-faint); letter-spacing:1px; }
+.footer-built { font-size:12px; color:rgba(200,169,110,.35); letter-spacing:2px; text-align:left; }
+
+/* ─── FLOAT BTN ──────────────────────── */
+.float-btn {
+  position:fixed; bottom:32px; left:32px; z-index:50;
+  background:var(--gold); color:var(--bg);
+  padding:14px 24px; font-size:12px; font-weight:700; letter-spacing:3px;
+  border:none; box-shadow:0 8px 32px rgba(200,169,110,.25);
+  transition:all .3s; display:flex; align-items:center; gap:8px;
+}
+.float-btn:hover { background:var(--gold2); transform:translateY(-3px); box-shadow:0 14px 40px rgba(200,169,110,.35); }
+.float-dot { width:6px; height:6px; border-radius:50%; background:var(--bg); animation:pulse2 2s infinite; }
+@keyframes pulse2 { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.7)} }
+
+/* ─── REVEAL ANIMATIONS ──────────────── */
+.reveal { opacity:0; transform:translateY(32px); transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
+.reveal.visible { opacity:1; transform:translateY(0); }
+.reveal-delay-1 { transition-delay:.1s; }
+.reveal-delay-2 { transition-delay:.2s; }
+.reveal-delay-3 { transition-delay:.3s; }
+
+/* ─── RESPONSIVE ─────────────────────── */
+@media(max-width:900px) {
+  section { padding:80px 24px; }
+  #nav { padding:18px 24px; }
+  #nav.stuck { padding:14px 24px; }
+  .nav-links, .nav-btn { display:none; }
+  .nav-burger { display:flex; }
+  .hero { padding:0 24px 60px; }
+  .hero h1 { font-size:52px; letter-spacing:-2px; }
+  .hero-stats { display:none; }
+  .hero-scroll { left:24px; }
+  .story-inner { grid-template-columns:1fr; gap:48px; }
+  .story-img-accent { display:none; }
+  .menu-panel.on { grid-template-columns:1fr; }
+  .specials-grid { grid-template-columns:1fr; }
+  .testi-grid { grid-template-columns:1fr; }
+  .gallery-grid { columns:2; }
+  .res-form { grid-template-columns:1fr; }
+  .info-row { padding:60px 24px; }
+  .info-row-inner { grid-template-columns:1fr; gap:32px; }
+  footer { padding:40px 24px; flex-direction:column; text-align:center; }
+  .footer-built { text-align:center; }
+  .float-btn { bottom:20px; left:20px; padding:12px 18px; font-size:11px; }
+}
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader" class="hide">
+  <div class="loader-logo">NOVA</div>
+  <div class="loader-bar"></div>
+</div>
+
+<!-- NAV -->
+<nav id="nav" class="stuck">
+  <div class="nav-logo">
+    <div class="nav-logo-en">NOVA</div>
+    <div class="nav-logo-fa">کافه رستوران</div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="file:///C:/Users/rj/Downloads/nova-cafe.html#story">داستان</a></li>
+    <li><a href="file:///C:/Users/rj/Downloads/nova-cafe.html#menu">منو</a></li>
+    <li><a href="file:///C:/Users/rj/Downloads/nova-cafe.html#specials">ویژه‌ها</a></li>
+    <li><a href="file:///C:/Users/rj/Downloads/nova-cafe.html#reservation">رزرو</a></li>
+  </ul>
+  <button class="nav-btn" onclick="document.getElementById(&#39;reservation&#39;).scrollIntoView({behavior:&#39;smooth&#39;})">رزرو میز</button>
+  <button class="nav-burger" id="burger" onclick="document.getElementById(&#39;mobile-nav&#39;).classList.add(&#39;open&#39;)">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div id="mobile-nav">
+  <button class="mobile-close" onclick="document.getElementById(&#39;mobile-nav&#39;).classList.remove(&#39;open&#39;)">✕</button>
+  <a href="file:///C:/Users/rj/Downloads/nova-cafe.html#story" onclick="document.getElementById(&#39;mobile-nav&#39;).classList.remove(&#39;open&#39;)">داستان</a>
+  <a href="file:///C:/Users/rj/Downloads/nova-cafe.html#menu" onclick="document.getElementById(&#39;mobile-nav&#39;).classList.remove(&#39;open&#39;)">منو</a>
+  <a href="file:///C:/Users/rj/Downloads/nova-cafe.html#specials" onclick="document.getElementById(&#39;mobile-nav&#39;).classList.remove(&#39;open&#39;)">ویژه‌ها</a>
+  <a href="file:///C:/Users/rj/Downloads/nova-cafe.html#reservation" onclick="document.getElementById(&#39;mobile-nav&#39;).classList.remove(&#39;open&#39;)">رزرو</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-img"></div>
+  <div class="hero-visual"></div>
+  <div class="hero-noise"></div>
+  <div class="hero-stats">
+    <div class="hero-stat-item"><div class="hero-stat-n">۹+</div><div class="hero-stat-l">سال</div></div>
+    <div class="hero-stat-div"></div>
+    <div class="hero-stat-item"><div class="hero-stat-n">۴.۹</div><div class="hero-stat-l">امتیاز</div></div>
+    <div class="hero-stat-div"></div>
+    <div class="hero-stat-item"><div class="hero-stat-n">۱۵۰</div><div class="hero-stat-l">صندلی</div></div>
+  </div>
+  <div class="hero-eyebrow">
+    <div class="hero-eyebrow-line"></div>
+    <span>تهران — نیاوران — از ۱۳۹۵</span>
+  </div>
+  <h1>لحظه‌ای<span class="gold">به‌یادماندنی</span></h1>
+  <p class="hero-sub">نوا فقط یک کافه نیست. اینجا هر فنجان قهوه یک تجربه است، هر میز یک خاطره می‌سازد.</p>
+  <div class="hero-cta">
+    <button class="btn-fill" onclick="document.getElementById(&#39;menu&#39;).scrollIntoView({behavior:&#39;smooth&#39;})">مشاهده منو</button>
+    <button class="btn-outline" onclick="document.getElementById(&#39;reservation&#39;).scrollIntoView({behavior:&#39;smooth&#39;})">رزرو میز</button>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span>اسکرول کنید</span>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <div class="marquee-item"><div class="marquee-dot"></div><span>قهوه تخصصی</span></div>
+    <div class="marquee-item"><div class="marquee-dot"></div><span>دسرهای لوکس</span></div>
+    <div class="marquee-item"><div class="marquee-dot"></div><span>صبحانه تازه</span></div>
+    <div class="marquee-item"><div class="marquee-dot"></div><span>موسیقی زنده</span></div>
+    <div class="marquee-item"><div class="marquee-dot"></div><span>فضای خصوصی</span></div>
+    <div class="marquee-item"><div class="marquee-dot"></div><span>Specialty Coffee</span></div>
+    <div class="marquee-item"><div class="marquee-dot"></div><span>Luxury Desserts</span></div>
+    <div class="marquee-item"><div class="marquee-dot"></div><span>Fresh Breakfast</span></div>
+    <div class="marquee-item"><div class="marquee-dot"></div><span>Live Music</span></div>
+    <div class="marquee-item"><div class="marquee-dot"></div><span>Private Events</span></div>
+    <div class="marquee-item"><div class="marquee-dot"></div><span>قهوه تخصصی</span></div>
+    <div class="marquee-item"><div class="marquee-dot"></div><span>دسرهای لوکس</span></div>
+    <div class="marquee-item"><div class="marquee-dot"></div><span>صبحانه تازه</span></div>
+    <div class="marquee-item"><div class="marquee-dot"></div><span>موسیقی زنده</span></div>
+    <div class="marquee-item"><div class="marquee-dot"></div><span>فضای خصوصی</span></div>
+    <div class="marquee-item"><div class="marquee-dot"></div><span>Specialty Coffee</span></div>
+    <div class="marquee-item"><div class="marquee-dot"></div><span>Luxury Desserts</span></div>
+    <div class="marquee-item"><div class="marquee-dot"></div><span>Fresh Breakfast</span></div>
+    <div class="marquee-item"><div class="marquee-dot"></div><span>Live Music</span></div>
+    <div class="marquee-item"><div class="marquee-dot"></div><span>Private Events</span></div>
+  </div>
+</div>
+
+<!-- STORY -->
+<section id="story">
+  <div class="story-inner">
+    <div class="story-visual reveal visible">
+      <div class="story-img-main"></div>
+      <div class="story-img-accent"></div>
+      <div class="story-badge"><div class="story-badge-n">۹+</div><div class="story-badge-l">سال تجربه</div></div>
+    </div>
+    <div class="story-text">
+      <div class="sec-eyebrow reveal visible"><div class="sec-eyebrow-line"></div><span>داستان نوا</span></div>
+      <h2 class="sec-title reveal reveal-delay-1 visible">جایی که<br>قهوه هنر است</h2>
+      <p class="reveal reveal-delay-2 visible">نوا در سال ۱۳۹۵ با یک رویا شروع شد — فضایی که در آن کیفیت حرف اول را بزند. نه فقط قهوه خوب، بلکه تجربه‌ای کامل از لحظه‌ای که وارد می‌شوید.</p>
+      <p class="reveal reveal-delay-2 visible">دانه‌های قهوه ما مستقیم از مزارع اتیوپی و کلمبیا تامین می‌شوند. هر فنجان با دقت و عشق روسترد و دم می‌شود.</p>
+      <div class="story-divider reveal visible"></div>
+      <div class="story-values reveal reveal-delay-3 visible">
+        <div class="story-val-item"><div class="label">کیفیت</div><div class="desc">بهترین مواد اولیه</div></div>
+        <div class="story-val-item"><div class="label">اصالت</div><div class="desc">دستور العمل‌های اصیل</div></div>
+        <div class="story-val-item"><div class="label">تجربه</div><div class="desc">فضایی منحصر به فرد</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu" class="menu-preview">
+  <div class="menu-preview-inner">
+    <div class="sec-eyebrow reveal visible"><div class="sec-eyebrow-line"></div><span>منوی نوا</span></div>
+    <h2 class="sec-title reveal reveal-delay-1 visible">هر طعم<br>یک داستان</h2>
+    <div class="menu-tabs">
+      <button class="mtab on" onclick="switchTab(this,&#39;espresso&#39;)">اسپرسو بار</button>
+      <button class="mtab" onclick="switchTab(this,&#39;signature&#39;)">نوشیدنی‌های ویژه</button>
+      <button class="mtab" onclick="switchTab(this,&#39;cold&#39;)">نوشیدنی سرد</button>
+      <button class="mtab" onclick="switchTab(this,&#39;dessert&#39;)">دسر</button>
+      <button class="mtab" onclick="switchTab(this,&#39;breakfast&#39;)">صبحانه</button>
+    </div>
+
+    <div class="menu-panel on" id="tab-espresso">
+      <div class="menu-row"><div class="menu-row-r"><span class="menu-idx">۰۱</span><div class="menu-row-info"><h4>اسپرسو</h4><p>Single origin Ethiopia</p></div></div><div class="menu-row-l"><span class="menu-price">۱۴۰ هزار</span></div></div>
+      <div class="menu-row"><div class="menu-row-r"><span class="menu-idx">۰۲</span><div class="menu-row-info"><h4>دابل اسپرسو</h4><p>Double shot, rich crema</p></div></div><div class="menu-row-l"><span class="menu-price">۱۸۰ هزار</span></div></div>
+      <div class="menu-row"><div class="menu-row-r"><span class="menu-idx">۰۳</span><div class="menu-row-info"><h4>آمریکانو</h4><p>Espresso + hot water</p></div></div><div class="menu-row-l"><span class="menu-badge badge-gold">پرفروش</span><span class="menu-price">۱۶۰ هزار</span></div></div>
+      <div class="menu-row"><div class="menu-row-r"><span class="menu-idx">۰۴</span><div class="menu-row-info"><h4>کاپوچینو</h4><p>Espresso + steamed milk foam</p></div></div><div class="menu-row-l"><span class="menu-price">۱۹۰ هزار</span></div></div>
+      <div class="menu-row"><div class="menu-row-r"><span class="menu-idx">۰۵</span><div class="menu-row-info"><h4>لاته</h4><p>Espresso + velvety steamed milk</p></div></div><div class="menu-row-l"><span class="menu-badge badge-gold">پرفروش</span><span class="menu-price">۲۱۰ هزار</span></div></div>
+      <div class="menu-row"><div class="menu-row-r"><span class="menu-idx">۰۶</span><div class="menu-row-info"><h4>موکا</h4><p>Espresso + chocolate + milk</p></div></div><div class="menu-row-l"><span class="menu-price">۲۴۰ هزار</span></div></div>
+      <div class="menu-row"><div class="menu-row-r"><span class="menu-idx">۰۷</span><div class="menu-row-info"><h4>فلت وایت</h4><p>Ristretto + microfoam milk</p></div></div><div class="menu-row-l"><span class="menu-price">۲۲۰ هزار</span></div></div>
+      <div class="menu-row"><div class="menu-row-r"><span class="menu-idx">۰۸</span><div class="menu-row-info"><h4>کورتادو</h4><p>Equal parts espresso and milk</p></div></div><div class="menu-row-l"><span class="menu-price">۱۸۰ هزار</span></div></div>
+    </div>
+
+    <div class="menu-panel" id="tab-signature">
+      <div class="menu-row"><div class="menu-row-r"><span class="menu-idx">۰۱</span><div class="menu-row-info"><h4>لاته زعفران و عسل</h4><p>Saffron Honey Latte — طعم ایرانی</p></div></div><div class="menu-row-l"><span class="menu-badge badge-gold">ویژه نوا</span><span class="menu-price">۲۹۰ هزار</span></div></div>
+      <div class="menu-row"><div class="menu-row-r"><span class="menu-idx">۰۲</span><div class="menu-row-info"><h4>لاته گل سرخ</h4><p>Persian Rose Latte — رومانتیک</p></div></div><div class="menu-row-l"><span class="menu-badge badge-red">جدید</span><span class="menu-price">۳۱۰ هزار</span></div></div>
+      <div class="menu-row"><div class="menu-row-r"><span class="menu-idx">۰۳</span><div class="menu-row-info"><h4>موکا پسته</h4><p>Pistachio Mocha — ایرانی مدرن</p></div></div><div class="menu-row-l"><span class="menu-badge badge-gold">پرفروش</span><span class="menu-price">۳۳۰ هزار</span></div></div>
+      <div class="menu-row"><div class="menu-row-r"><span class="menu-idx">۰۴</span><div class="menu-row-info"><h4>کاپوچینو هل</h4><p>Cardamom Cappuccino — گرم و معطر</p></div></div><div class="menu-row-l"><span class="menu-price">۲۸۰ هزار</span></div></div>
+      <div class="menu-row"><div class="menu-row-r"><span class="menu-idx">۰۵</span><div class="menu-row-info"><h4>غروب تهران</h4><p>Tehran Sunset Cold Brew — سیگنیچر</p></div></div><div class="menu-row-l"><span class="menu-badge badge-red">ویژه</span><span class="menu-price">۳۴۰ هزار</span></div></div>
+    </div>
+
+    <div class="menu-panel" id="tab-cold">
+      <div class="menu-row"><div class="menu-row-r"><span class="menu-idx">۰۱</span><div class="menu-row-info"><h4>آیس آمریکانو</h4><p>Iced Americano</p></div></div><div class="menu-row-l"><span class="menu-price">۱۸۰ هزار</span></div></div>
+      <div class="menu-row"><div class="menu-row-r"><span class="menu-idx">۰۲</span><div class="menu-row-info"><h4>آیس لاته</h4><p>Iced Latte</p></div></div><div class="menu-row-l"><span class="menu-badge badge-gold">پرفروش</span><span class="menu-price">۲۴۰ هزار</span></div></div>
+      <div class="menu-row"><div class="menu-row-r"><span class="menu-idx">۰۳</span><div class="menu-row-info"><h4>آیس موکا</h4><p>Iced Mocha</p></div></div><div class="menu-row-l"><span class="menu-price">۲۷۰ هزار</span></div></div>
+      <div class="menu-row"><div class="menu-row-r"><span class="menu-idx">۰۴</span><div class="menu-row-info"><h4>کلد برو</h4><p>Cold Brew — 18hr steep</p></div></div><div class="menu-row-l"><span class="menu-price">۲۵۰ هزار</span></div></div>
+      <div class="menu-row"><div class="menu-row-r"><span class="menu-idx">۰۵</span><div class="menu-row-info"><h4>کلد برو وانیل</h4><p>Vanilla Cold Brew</p></div></div><div class="menu-row-l"><span class="menu-badge badge-red">جدید</span><span class="menu-price">۲۹۰ هزار</span></div></div>
+    </div>
+
+    <div class="menu-panel" id="tab-dessert">
+      <div class="menu-row"><div class="menu-row-r"><span class="menu-idx">۰۱</span><div class="menu-row-info"><h4>چیزکیک سان سباستیان</h4><p>San Sebastian — بهترین تهران</p></div></div><div class="menu-row-l"><span class="menu-badge badge-gold">پرفروش</span><span class="menu-price">۳۲۰ هزار</span></div></div>
+      <div class="menu-row"><div class="menu-row-r"><span class="menu-idx">۰۲</span><div class="menu-row-info"><h4>تیرامیسو</h4><p>Classic Italian Tiramisu</p></div></div><div class="menu-row-l"><span class="menu-price">۲۸۰ هزار</span></div></div>
+      <div class="menu-row"><div class="menu-row-r"><span class="menu-idx">۰۳</span><div class="menu-row-info"><h4>چیزکیک لوتوس</h4><p>Lotus Biscoff Cheesecake</p></div></div><div class="menu-row-l"><span class="menu-badge badge-red">جدید</span><span class="menu-price">۳۴۰ هزار</span></div></div>
+      <div class="menu-row"><div class="menu-row-r"><span class="menu-idx">۰۴</span><div class="menu-row-info"><h4>کیک شکلاتی</h4><p>Dark Chocolate Cake</p></div></div><div class="menu-row-l"><span class="menu-price">۲۶۰ هزار</span></div></div>
+      <div class="menu-row"><div class="menu-row-r"><span class="menu-idx">۰۵</span><div class="menu-row-info"><h4>کروسان پسته</h4><p>Pistachio Croissant — تازه هر روز</p></div></div><div class="menu-row-l"><span class="menu-badge badge-gold">ویژه</span><span class="menu-price">۲۲۰ هزار</span></div></div>
+    </div>
+
+    <div class="menu-panel" id="tab-breakfast">
+      <div class="menu-row"><div class="menu-row-r"><span class="menu-idx">۰۱</span><div class="menu-row-info"><h4>صبحانه ایرانی</h4><p>Persian Breakfast Plate — کامل</p></div></div><div class="menu-row-l"><span class="menu-badge badge-gold">پرفروش</span><span class="menu-price">۴۲۰ هزار</span></div></div>
+      <div class="menu-row"><div class="menu-row-r"><span class="menu-idx">۰۲</span><div class="menu-row-info"><h4>آووکادو تست</h4><p>Avocado Toast — sourdough</p></div></div><div class="menu-row-l"><span class="menu-price">۳۸۰ هزار</span></div></div>
+      <div class="menu-row"><div class="menu-row-r"><span class="menu-idx">۰۳</span><div class="menu-row-info"><h4>اگز بندیکت</h4><p>Eggs Benedict — hollandaise</p></div></div><div class="menu-row-l"><span class="menu-badge badge-red">جدید</span><span class="menu-price">۴۵۰ هزار</span></div></div>
+      <div class="menu-row"><div class="menu-row-r"><span class="menu-idx">۰۴</span><div class="menu-row-info"><h4>صبحانه فرانسوی</h4><p>French Breakfast — کروسان و مربا</p></div></div><div class="menu-row-l"><span class="menu-price">۳۹۰ هزار</span></div></div>
+      <div class="menu-row"><div class="menu-row-r"><span class="menu-idx">۰۵</span><div class="menu-row-info"><h4>گرانولا بول</h4><p>Granola Bowl — ماست و میوه</p></div></div><div class="menu-row-l"><span class="menu-price">۳۵۰ هزار</span></div></div>
+    </div>
+
+    <div class="menu-footer reveal visible">
+      <button class="btn-outline" style="margin:0 auto">مشاهده منوی کامل ←</button>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIALS -->
+<section id="specials">
+  <div class="specials-inner">
+    <div class="sec-eyebrow reveal visible"><div class="sec-eyebrow-line"></div><span>ویژه‌های نوا</span></div>
+    <h2 class="sec-title reveal reveal-delay-1 visible">محبوب‌ترین‌ها</h2>
+    <div class="specials-grid">
+      <div class="special-card reveal visible">
+        <div class="special-card-img s1"></div>
+        <div class="special-card-body">
+          <div class="special-cat">نوشیدنی ویژه</div>
+          <div class="special-name">لاته زعفران و عسل</div>
+          <div class="special-desc">ترکیب منحصر به فرد زعفران ایرانی با اسپرسو و عسل طبیعی</div>
+          <div class="special-price">۲۹۰ هزار تومان</div>
+        </div>
+      </div>
+      <div class="special-card reveal reveal-delay-1 visible">
+        <div class="special-card-img s2"></div>
+        <div class="special-card-body">
+          <div class="special-cat">دسر</div>
+          <div class="special-name">چیزکیک سان سباستیان</div>
+          <div class="special-desc">با خامه تازه و پایه بیسکویت، پخته شده در فر سنگی</div>
+          <div class="special-price">۳۲۰ هزار تومان</div>
+        </div>
+      </div>
+      <div class="special-card reveal reveal-delay-2 visible">
+        <div class="special-card-img s3"></div>
+        <div class="special-card-body">
+          <div class="special-cat">صبحانه</div>
+          <div class="special-name">اگز بندیکت نوا</div>
+          <div class="special-desc">روی نان سوردو با سس هلندز خانگی و اسفناج تازه</div>
+          <div class="special-price">۴۵۰ هزار تومان</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="testimonials">
+  <div class="testimonials-inner">
+    <div class="sec-eyebrow reveal visible"><div class="sec-eyebrow-line"></div><span>نظرات مشتریان</span></div>
+    <h2 class="sec-title reveal reveal-delay-1 visible">مشتریان درباره نوا</h2>
+    <div class="testi-grid">
+      <div class="testi-card reveal visible">
+        <div class="testi-q">"</div>
+        <p class="testi-text">نوا تعریف جدیدی از کافه به من داد. لاته زعفرونشون فراموش‌نشدنیه. هر بار که میام حس می‌کنم به یه جای خاص اومدم.</p>
+        <div class="testi-author">
+          <div class="testi-av">سم</div>
+          <div><div class="testi-name">سارا محمدی</div><div class="testi-role">طراح گرافیک</div><div class="testi-stars">★★★★★</div></div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-1 visible">
+        <div class="testi-q">"</div>
+        <p class="testi-text">چیزکیک سان سباستیانشون بهترین چیزیه که تو تهران خوردم. فضا هم خیلی آرومه، برای کار کردن عالیه.</p>
+        <div class="testi-author">
+          <div class="testi-av">عک</div>
+          <div><div class="testi-name">علی کریمی</div><div class="testi-role">فریلنسر</div><div class="testi-stars">★★★★★</div></div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-2 visible">
+        <div class="testi-q">"</div>
+        <p class="testi-text">صبحانه نوا یه تجربه کامله. مواد تازه، سرویس حرفه‌ای، و قهوه‌ای که روزتو عالی شروع می‌کنه. حتماً رزرو کنید.</p>
+        <div class="testi-author">
+          <div class="testi-av">نر</div>
+          <div><div class="testi-name">نیلوفر رضایی</div><div class="testi-role">معمار</div><div class="testi-stars">★★★★★</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="gallery-inner">
+    <div class="sec-eyebrow reveal visible"><div class="sec-eyebrow-line"></div><span>گالری نوا</span></div>
+    <h2 class="sec-title reveal reveal-delay-1 visible">فضای ما</h2>
+    <div class="gallery-grid reveal reveal-delay-2 visible">
+      <div class="gallery-item"><div style="width:100%;aspect-ratio:1;background:url(&#39;https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=400&amp;q=75&#39;) center/cover;filter:brightness(.65) saturate(.75);transition:filter .4s,transform .5s"></div><div class="gallery-overlay"><span>فضای داخلی</span></div></div>
+      <div class="gallery-item"><div style="width:100%;aspect-ratio:3/4;background:url(&#39;https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&amp;q=75&#39;) center/cover;filter:brightness(.65) saturate(.75);transition:filter .4s,transform .5s"></div><div class="gallery-overlay"><span>قهوه ویژه</span></div></div>
+      <div class="gallery-item"><div style="width:100%;aspect-ratio:4/3;background:url(&#39;https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&amp;q=75&#39;) center/cover;filter:brightness(.65) saturate(.75);transition:filter .4s,transform .5s"></div><div class="gallery-overlay"><span>لاته آرت</span></div></div>
+      <div class="gallery-item"><div style="width:100%;aspect-ratio:1;background:url(&#39;https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&amp;q=75&#39;) center/cover;filter:brightness(.65) saturate(.75);transition:filter .4s,transform .5s"></div><div class="gallery-overlay"><span>دسر</span></div></div>
+      <div class="gallery-item"><div style="width:100%;aspect-ratio:3/4;background:url(&#39;https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=400&amp;q=75&#39;) center/cover;filter:brightness(.65) saturate(.75);transition:filter .4s,transform .5s"></div><div class="gallery-overlay"><span>شب نوا</span></div></div>
+      <div class="gallery-item"><div style="width:100%;aspect-ratio:1;background:url(&#39;https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=400&amp;q=75&#39;) center/cover;filter:brightness(.65) saturate(.75);transition:filter .4s,transform .5s"></div><div class="gallery-overlay"><span>صبحانه</span></div></div>
+      <div class="gallery-item"><div style="width:100%;aspect-ratio:4/3;background:url(&#39;https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=400&amp;q=75&#39;) center/cover;filter:brightness(.65) saturate(.75);transition:filter .4s,transform .5s"></div><div class="gallery-overlay"><span>میز کار</span></div></div>
+      <div class="gallery-item"><div style="width:100%;aspect-ratio:1;background:url(&#39;https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=400&amp;q=75&#39;) center/cover;filter:brightness(.65) saturate(.75);transition:filter .4s,transform .5s"></div><div class="gallery-overlay"><span>کلد برو</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVATION -->
+<section id="reservation" class="reservation">
+  <div class="reservation-inner">
+    <div class="sec-eyebrow reveal visible" style="justify-content:center"><div class="sec-eyebrow-line"></div><span>رزرو میز</span></div>
+    <h2 class="sec-title reveal reveal-delay-1 visible" style="text-align:center">شب خاص<br>خود را رزرو کنید</h2>
+    <p class="sec-sub reveal reveal-delay-2 visible" style="margin:0 auto;text-align:center">ظرفیت نوا محدود است. برای اطمینان از جای خود در شب‌های خاص، همین الان رزرو کنید.</p>
+    <div class="res-form reveal reveal-delay-2 visible">
+      <input class="form-full" type="text" placeholder="نام و نام خانوادگی">
+      <input type="tel" placeholder="شماره موبایل">
+      <input type="email" placeholder="ایمیل (اختیاری)" style="direction:ltr;text-align:right">
+      <input type="date">
+      <select><option value="">تعداد نفرات</option><option>۱ نفر</option><option>۲ نفر</option><option>۳ تا ۴ نفر</option><option>۵ تا ۸ نفر</option><option>بیشتر از ۸ نفر</option></select>
+      <select><option value="">وعده</option><option>صبحانه ۸–۱۱</option><option>ناهار ۱۲–۱۵</option><option>شام ۱۹–۲۳</option></select>
+      <button class="btn-fill form-full" style="width:100%;padding:16px;font-size:13px;letter-spacing:3px">ثبت رزرو ←</button>
+    </div>
+    <p class="res-note reveal visible">رزرو شما ظرف ۲ ساعت از طریق پیامک تایید می‌شود</p>
+  </div>
+</section>
+
+<!-- INFO -->
+<div class="info-row">
+  <div class="info-row-inner">
+    <div class="info-block reveal visible">
+      <h4>آدرس</h4>
+      <p>تهران، نیاوران</p>
+      <p>خیابان پاسداران، کوچه گلستان</p>
+      <a href="file:///C:/Users/rj/Downloads/nova-cafe.html#">نقشه گوگل ←</a>
+    </div>
+    <div class="info-block reveal reveal-delay-1 visible">
+      <h4>ساعات کاری</h4>
+      <p>شنبه تا چهارشنبه: ۸ صبح – ۱۱ شب</p>
+      <p>پنجشنبه و جمعه: ۸ صبح – ۱ بامداد</p>
+    </div>
+    <div class="info-block reveal reveal-delay-2 visible">
+      <h4>تماس</h4>
+      <a href="tel:02122789012">۰۲۱ – ۲۲۷۸۹۰۱۲</a>
+      <a href="file:///C:/Users/rj/Downloads/nova-cafe.html#">اینستاگرام: nova.cafe.tehran@</a>
+      <a href="file:///C:/Users/rj/Downloads/nova-cafe.html#">nova.cafe@gmail.com</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo-en">NOVA</div>
+    <div class="footer-logo-fa">کافه رستوران — تهران</div>
+  </div>
+  <p>© ۱۴۰۳ نوا کافه. تمام حقوق محفوظ است.</p>
+  <div class="footer-built">طراحی توسط روژان علیزاده</div>
+</footer>
+
+<!-- FLOAT BTN -->
+<button class="float-btn" onclick="document.getElementById(&#39;reservation&#39;).scrollIntoView({behavior:&#39;smooth&#39;})">
+  <div class="float-dot"></div>
+  رزرو میز
+</button>
+
+<script>
+// LOADER
+window.addEventListener('load', () => {
+  setTimeout(() => { document.getElementById('loader').classList.add('hide'); }, 1500);
+});
+
+// NAV SCROLL
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('stuck', window.scrollY > 60);
+});
+
+// MENU TABS
+function switchTab(btn, id) {
+  document.querySelectorAll('.mtab').forEach(t => t.classList.remove('on'));
+  document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('on'));
+  btn.classList.add('on');
+  document.getElementById('tab-' + id).classList.add('on');
+}
+
+// REVEAL ON SCROLL
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(r => observer.observe(r));
+</script>
+
+
+</body></html>
