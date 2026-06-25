@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0044)file:///C:/Users/rj/Downloads/nova-cafe.html -->
+<!-- saved from url=(0046)file:///C:/Users/rj/Downloads/nova-cafe_1.html -->
 <html lang="fa" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +23,7 @@
 }
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; }
-body { background:var(--bg); color:var(--text); font-family:'Vazirmatn',sans-serif; overflow-x:hidden; }
+body { background:var(--bg); color:var(--text); font-family:'Vazirmatn',sans-serif; overflow-x:hidden; font-feature-settings:'kern' 1; text-rendering:optimizeLegibility; -webkit-font-smoothing:antialiased; }
 img { max-width:100%; display:block; }
 a { text-decoration:none; color:inherit; }
 button { cursor:pointer; font-family:'Vazirmatn',sans-serif; }
@@ -64,14 +64,14 @@ button { cursor:pointer; font-family:'Vazirmatn',sans-serif; }
   border-bottom:1px solid var(--gold-border);
 }
 .nav-logo { display:flex; flex-direction:column; align-items:flex-end; }
-.nav-logo-en { font-size:22px; font-weight:900; letter-spacing:6px; color:var(--gold); }
+.nav-logo-en { font-size:22px; font-weight:900; letter-spacing:2px; color:var(--gold); }
 .nav-logo-fa { font-size:10px; letter-spacing:4px; color:rgba(200,169,110,0.4); margin-top:-2px; }
 .nav-links { display:flex; gap:36px; list-style:none; }
-.nav-links a { font-size:13px; letter-spacing:2px; color:var(--text-dim); transition:color .2s; }
+.nav-links a { font-size:13px; letter-spacing:0.5px; color:var(--text-dim); transition:color .2s; }
 .nav-links a:hover { color:var(--gold); }
 .nav-btn {
   border:1px solid var(--gold-border); color:var(--gold);
-  padding:10px 26px; font-size:12px; font-weight:600; letter-spacing:3px;
+  padding:10px 26px; font-size:12px; font-weight:600; letter-spacing:0.5px;
   background:transparent; transition:all .3s;
 }
 .nav-btn:hover { background:var(--gold-dim); }
@@ -99,9 +99,9 @@ button { cursor:pointer; font-family:'Vazirmatn',sans-serif; }
 .hero-visual {
   position:absolute; inset:0;
   background:
-    radial-gradient(ellipse at 65% 35%, rgba(160,100,30,0.28) 0%, transparent 60%),
-    radial-gradient(ellipse at 30% 70%, rgba(100,60,10,0.18) 0%, transparent 50%),
-    linear-gradient(to top, rgba(8,6,4,1) 0%, rgba(8,6,4,0.55) 50%, rgba(8,6,4,0.25) 100%);
+    radial-gradient(ellipse at 65% 35%, rgba(160,100,30,0.22) 0%, transparent 60%),
+    radial-gradient(ellipse at 30% 70%, rgba(100,60,10,0.12) 0%, transparent 50%),
+    linear-gradient(to top, rgba(8,6,4,0.95) 0%, rgba(8,6,4,0.35) 55%, rgba(8,6,4,0.1) 100%);
 }
 .hero-noise {
   position:absolute; inset:0; opacity:.025;
@@ -112,33 +112,33 @@ button { cursor:pointer; font-family:'Vazirmatn',sans-serif; }
   position:absolute; inset:0; z-index:-1;
   background:
     url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1600&q=80') center/cover no-repeat;
-  filter:brightness(.35) saturate(.8);
+  filter:brightness(.55) saturate(.85);
 }
 .hero-eyebrow { display:flex; align-items:center; gap:14px; margin-bottom:20px; }
 .hero-eyebrow-line { width:40px; height:1px; background:var(--gold); opacity:.6; }
-.hero-eyebrow span { font-size:11px; letter-spacing:5px; color:rgba(200,169,110,.6); text-transform:uppercase; }
+.hero-eyebrow span { font-size:11px; letter-spacing:1px; color:rgba(200,169,110,.6); text-transform:uppercase; }
 .hero h1 {
   font-size:clamp(56px,9vw,108px); font-weight:900;
   line-height:.95; letter-spacing:-3px;
-  color:var(--text); margin-bottom:28px;
+  color:#ffffff; margin-bottom:28px;
 }
 .hero h1 .gold { color:var(--gold); display:block; }
 .hero-sub {
   max-width:460px; font-size:16px; line-height:2;
-  color:var(--text-dim); font-weight:300; margin-bottom:48px;
+  color:rgba(255,255,255,0.75); font-weight:300; margin-bottom:48px;
   letter-spacing:.3px;
 }
 .hero-cta { display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
 .btn-fill {
   background:var(--gold); color:var(--bg);
-  padding:16px 40px; font-size:13px; font-weight:700; letter-spacing:3px;
+  padding:16px 40px; font-size:13px; font-weight:700; letter-spacing:0.5px;
   border:none; transition:all .3s;
 }
 .btn-fill:hover { background:var(--gold2); transform:translateY(-2px); box-shadow:0 12px 40px rgba(200,169,110,.28); }
 .btn-outline {
   background:transparent; border:1px solid rgba(240,232,216,.2);
   color:var(--text-dim); padding:16px 40px;
-  font-size:13px; font-weight:400; letter-spacing:3px; transition:all .3s;
+  font-size:13px; font-weight:400; letter-spacing:0.5px; transition:all .3s;
 }
 .btn-outline:hover { border-color:var(--gold-border); color:var(--gold); }
 .hero-scroll {
@@ -156,13 +156,13 @@ button { cursor:pointer; font-family:'Vazirmatn',sans-serif; }
 }
 .hero-stat-item { text-align:center; }
 .hero-stat-n { font-size:26px; font-weight:900; color:var(--gold); letter-spacing:-1px; line-height:1; }
-.hero-stat-l { font-size:10px; letter-spacing:3px; color:var(--text-faint); margin-top:4px; text-transform:uppercase; }
+.hero-stat-l { font-size:10px; letter-spacing:0.5px; color:var(--text-faint); margin-top:4px; text-transform:uppercase; }
 .hero-stat-div { width:1px; height:24px; background:var(--glass-border); margin:0 auto; }
 
 /* ─── MARQUEE ────────────────────────── */
 .marquee-wrap { overflow:hidden; border-top:1px solid var(--gold-border); border-bottom:1px solid var(--gold-border); padding:18px 0; background:rgba(200,169,110,.03); }
 .marquee-track { display:flex; gap:0; animation:marquee 28s linear infinite; white-space:nowrap; }
-.marquee-item { display:flex; align-items:center; gap:20px; padding:0 32px; font-size:12px; letter-spacing:4px; color:rgba(200,169,110,.4); text-transform:uppercase; flex-shrink:0; }
+.marquee-item { display:flex; align-items:center; gap:20px; padding:0 32px; font-size:12px; letter-spacing:1px; color:rgba(200,169,110,.4); text-transform:uppercase; flex-shrink:0; }
 .marquee-dot { width:4px; height:4px; border-radius:50%; background:var(--gold); flex-shrink:0; }
 @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
@@ -170,7 +170,7 @@ button { cursor:pointer; font-family:'Vazirmatn',sans-serif; }
 section { padding:120px 64px; }
 .sec-eyebrow { display:flex; align-items:center; gap:14px; margin-bottom:18px; }
 .sec-eyebrow-line { width:32px; height:1px; background:var(--gold); opacity:.6; flex-shrink:0; }
-.sec-eyebrow span { font-size:11px; letter-spacing:5px; color:rgba(200,169,110,.55); text-transform:uppercase; }
+.sec-eyebrow span { font-size:11px; letter-spacing:1px; color:rgba(200,169,110,.55); text-transform:uppercase; }
 .sec-title { font-size:clamp(32px,4.5vw,52px); font-weight:900; letter-spacing:-1.5px; line-height:1.05; color:var(--text); margin-bottom:16px; }
 .sec-sub { font-size:15px; color:var(--text-dim); line-height:2; font-weight:300; max-width:480px; }
 
@@ -196,13 +196,13 @@ section { padding:120px 64px; }
   padding:16px 20px; text-align:center;
 }
 .story-badge-n { font-size:28px; font-weight:900; color:var(--gold); letter-spacing:-1px; line-height:1; }
-.story-badge-l { font-size:10px; letter-spacing:3px; color:var(--text-faint); margin-top:4px; }
+.story-badge-l { font-size:10px; letter-spacing:0.5px; color:var(--text-faint); margin-top:4px; }
 .story-text { }
 .story-text p { font-size:15px; color:var(--text-dim); line-height:2.1; font-weight:300; margin-top:24px; }
 .story-text p + p { margin-top:16px; }
 .story-divider { width:48px; height:1px; background:var(--gold-border); margin:32px 0; }
 .story-values { display:flex; gap:32px; }
-.story-val-item .label { font-size:11px; letter-spacing:3px; color:var(--gold); text-transform:uppercase; margin-bottom:6px; }
+.story-val-item .label { font-size:11px; letter-spacing:0.5px; color:var(--gold); text-transform:uppercase; margin-bottom:6px; }
 .story-val-item .desc { font-size:13px; color:var(--text-faint); font-weight:300; }
 
 /* ─── MENU PREVIEW ───────────────────── */
@@ -210,7 +210,7 @@ section { padding:120px 64px; }
 .menu-preview-inner { max-width:1100px; margin:0 auto; }
 .menu-tabs { display:flex; gap:0; border-bottom:1px solid var(--glass-border); margin:48px 0 40px; overflow-x:auto; }
 .mtab {
-  padding:12px 28px; font-size:12px; letter-spacing:3px;
+  padding:12px 28px; font-size:12px; letter-spacing:0.5px;
   color:var(--text-faint); background:none;
   border:none; border-bottom:2px solid transparent;
   transition:all .2s; white-space:nowrap;
@@ -262,7 +262,7 @@ section { padding:120px 64px; }
   padding:28px 24px;
   background:linear-gradient(to top, rgba(8,6,4,.97) 0%, rgba(8,6,4,.7) 70%, transparent 100%);
 }
-.special-cat { font-size:10px; letter-spacing:4px; color:var(--gold); text-transform:uppercase; margin-bottom:8px; }
+.special-cat { font-size:10px; letter-spacing:1px; color:var(--gold); text-transform:uppercase; margin-bottom:8px; }
 .special-name { font-size:18px; font-weight:800; color:var(--text); margin-bottom:6px; letter-spacing:-.3px; }
 .special-desc { font-size:12px; color:var(--text-faint); font-weight:300; line-height:1.7; margin-bottom:14px; }
 .special-price { font-size:15px; font-weight:700; color:var(--gold); }
@@ -331,7 +331,7 @@ section { padding:120px 64px; }
 /* ─── INFO ROW ───────────────────────── */
 .info-row { padding:80px 64px; border-top:1px solid var(--glass-border); }
 .info-row-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:repeat(3,1fr); gap:48px; }
-.info-block h4 { font-size:11px; letter-spacing:4px; color:var(--gold); text-transform:uppercase; margin-bottom:16px; }
+.info-block h4 { font-size:11px; letter-spacing:1px; color:var(--gold); text-transform:uppercase; margin-bottom:16px; }
 .info-block p, .info-block a { font-size:14px; color:var(--text-faint); line-height:2.2; font-weight:300; display:block; transition:color .2s; }
 .info-block a:hover { color:var(--gold); }
 
@@ -341,8 +341,8 @@ footer {
   border-top:1px solid var(--glass-border);
   display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;
 }
-.footer-logo-en { font-size:20px; font-weight:900; letter-spacing:6px; color:var(--gold); }
-.footer-logo-fa { font-size:10px; letter-spacing:3px; color:rgba(200,169,110,.3); margin-top:2px; }
+.footer-logo-en { font-size:20px; font-weight:900; letter-spacing:2px; color:var(--gold); }
+.footer-logo-fa { font-size:10px; letter-spacing:0.5px; color:rgba(200,169,110,.3); margin-top:2px; }
 footer p { font-size:12px; color:var(--text-faint); letter-spacing:1px; }
 .footer-built { font-size:12px; color:rgba(200,169,110,.35); letter-spacing:2px; text-align:left; }
 
@@ -350,7 +350,7 @@ footer p { font-size:12px; color:var(--text-faint); letter-spacing:1px; }
 .float-btn {
   position:fixed; bottom:32px; left:32px; z-index:50;
   background:var(--gold); color:var(--bg);
-  padding:14px 24px; font-size:12px; font-weight:700; letter-spacing:3px;
+  padding:14px 24px; font-size:12px; font-weight:700; letter-spacing:0.5px;
   border:none; box-shadow:0 8px 32px rgba(200,169,110,.25);
   transition:all .3s; display:flex; align-items:center; gap:8px;
 }
@@ -400,16 +400,16 @@ footer p { font-size:12px; color:var(--text-faint); letter-spacing:1px; }
 </div>
 
 <!-- NAV -->
-<nav id="nav" class="stuck">
+<nav id="nav" class="">
   <div class="nav-logo">
     <div class="nav-logo-en">NOVA</div>
     <div class="nav-logo-fa">کافه رستوران</div>
   </div>
   <ul class="nav-links">
-    <li><a href="file:///C:/Users/rj/Downloads/nova-cafe.html#story">داستان</a></li>
-    <li><a href="file:///C:/Users/rj/Downloads/nova-cafe.html#menu">منو</a></li>
-    <li><a href="file:///C:/Users/rj/Downloads/nova-cafe.html#specials">ویژه‌ها</a></li>
-    <li><a href="file:///C:/Users/rj/Downloads/nova-cafe.html#reservation">رزرو</a></li>
+    <li><a href="file:///C:/Users/rj/Downloads/nova-cafe_1.html#story">داستان</a></li>
+    <li><a href="file:///C:/Users/rj/Downloads/nova-cafe_1.html#menu">منو</a></li>
+    <li><a href="file:///C:/Users/rj/Downloads/nova-cafe_1.html#specials">ویژه‌ها</a></li>
+    <li><a href="file:///C:/Users/rj/Downloads/nova-cafe_1.html#reservation">رزرو</a></li>
   </ul>
   <button class="nav-btn" onclick="document.getElementById(&#39;reservation&#39;).scrollIntoView({behavior:&#39;smooth&#39;})">رزرو میز</button>
   <button class="nav-burger" id="burger" onclick="document.getElementById(&#39;mobile-nav&#39;).classList.add(&#39;open&#39;)">
@@ -420,10 +420,10 @@ footer p { font-size:12px; color:var(--text-faint); letter-spacing:1px; }
 <!-- MOBILE NAV -->
 <div id="mobile-nav">
   <button class="mobile-close" onclick="document.getElementById(&#39;mobile-nav&#39;).classList.remove(&#39;open&#39;)">✕</button>
-  <a href="file:///C:/Users/rj/Downloads/nova-cafe.html#story" onclick="document.getElementById(&#39;mobile-nav&#39;).classList.remove(&#39;open&#39;)">داستان</a>
-  <a href="file:///C:/Users/rj/Downloads/nova-cafe.html#menu" onclick="document.getElementById(&#39;mobile-nav&#39;).classList.remove(&#39;open&#39;)">منو</a>
-  <a href="file:///C:/Users/rj/Downloads/nova-cafe.html#specials" onclick="document.getElementById(&#39;mobile-nav&#39;).classList.remove(&#39;open&#39;)">ویژه‌ها</a>
-  <a href="file:///C:/Users/rj/Downloads/nova-cafe.html#reservation" onclick="document.getElementById(&#39;mobile-nav&#39;).classList.remove(&#39;open&#39;)">رزرو</a>
+  <a href="file:///C:/Users/rj/Downloads/nova-cafe_1.html#story" onclick="document.getElementById(&#39;mobile-nav&#39;).classList.remove(&#39;open&#39;)">داستان</a>
+  <a href="file:///C:/Users/rj/Downloads/nova-cafe_1.html#menu" onclick="document.getElementById(&#39;mobile-nav&#39;).classList.remove(&#39;open&#39;)">منو</a>
+  <a href="file:///C:/Users/rj/Downloads/nova-cafe_1.html#specials" onclick="document.getElementById(&#39;mobile-nav&#39;).classList.remove(&#39;open&#39;)">ویژه‌ها</a>
+  <a href="file:///C:/Users/rj/Downloads/nova-cafe_1.html#reservation" onclick="document.getElementById(&#39;mobile-nav&#39;).classList.remove(&#39;open&#39;)">رزرو</a>
 </div>
 
 <!-- HERO -->
@@ -657,41 +657,41 @@ footer p { font-size:12px; color:var(--text-faint); letter-spacing:1px; }
 <!-- RESERVATION -->
 <section id="reservation" class="reservation">
   <div class="reservation-inner">
-    <div class="sec-eyebrow reveal visible" style="justify-content:center"><div class="sec-eyebrow-line"></div><span>رزرو میز</span></div>
-    <h2 class="sec-title reveal reveal-delay-1 visible" style="text-align:center">شب خاص<br>خود را رزرو کنید</h2>
-    <p class="sec-sub reveal reveal-delay-2 visible" style="margin:0 auto;text-align:center">ظرفیت نوا محدود است. برای اطمینان از جای خود در شب‌های خاص، همین الان رزرو کنید.</p>
-    <div class="res-form reveal reveal-delay-2 visible">
+    <div class="sec-eyebrow reveal" style="justify-content:center"><div class="sec-eyebrow-line"></div><span>رزرو میز</span></div>
+    <h2 class="sec-title reveal reveal-delay-1" style="text-align:center">شب خاص<br>خود را رزرو کنید</h2>
+    <p class="sec-sub reveal reveal-delay-2" style="margin:0 auto;text-align:center">ظرفیت نوا محدود است. برای اطمینان از جای خود در شب‌های خاص، همین الان رزرو کنید.</p>
+    <div class="res-form reveal reveal-delay-2">
       <input class="form-full" type="text" placeholder="نام و نام خانوادگی">
       <input type="tel" placeholder="شماره موبایل">
       <input type="email" placeholder="ایمیل (اختیاری)" style="direction:ltr;text-align:right">
       <input type="date">
       <select><option value="">تعداد نفرات</option><option>۱ نفر</option><option>۲ نفر</option><option>۳ تا ۴ نفر</option><option>۵ تا ۸ نفر</option><option>بیشتر از ۸ نفر</option></select>
       <select><option value="">وعده</option><option>صبحانه ۸–۱۱</option><option>ناهار ۱۲–۱۵</option><option>شام ۱۹–۲۳</option></select>
-      <button class="btn-fill form-full" style="width:100%;padding:16px;font-size:13px;letter-spacing:3px">ثبت رزرو ←</button>
+      <button class="btn-fill form-full" style="width:100%;padding:16px;font-size:13px;letter-spacing:0.5px">ثبت رزرو ←</button>
     </div>
-    <p class="res-note reveal visible">رزرو شما ظرف ۲ ساعت از طریق پیامک تایید می‌شود</p>
+    <p class="res-note reveal">رزرو شما ظرف ۲ ساعت از طریق پیامک تایید می‌شود</p>
   </div>
 </section>
 
 <!-- INFO -->
 <div class="info-row">
   <div class="info-row-inner">
-    <div class="info-block reveal visible">
+    <div class="info-block reveal">
       <h4>آدرس</h4>
       <p>تهران، نیاوران</p>
       <p>خیابان پاسداران، کوچه گلستان</p>
-      <a href="file:///C:/Users/rj/Downloads/nova-cafe.html#">نقشه گوگل ←</a>
+      <a href="file:///C:/Users/rj/Downloads/nova-cafe_1.html#">نقشه گوگل ←</a>
     </div>
-    <div class="info-block reveal reveal-delay-1 visible">
+    <div class="info-block reveal reveal-delay-1">
       <h4>ساعات کاری</h4>
       <p>شنبه تا چهارشنبه: ۸ صبح – ۱۱ شب</p>
       <p>پنجشنبه و جمعه: ۸ صبح – ۱ بامداد</p>
     </div>
-    <div class="info-block reveal reveal-delay-2 visible">
+    <div class="info-block reveal reveal-delay-2">
       <h4>تماس</h4>
       <a href="tel:02122789012">۰۲۱ – ۲۲۷۸۹۰۱۲</a>
-      <a href="file:///C:/Users/rj/Downloads/nova-cafe.html#">اینستاگرام: nova.cafe.tehran@</a>
-      <a href="file:///C:/Users/rj/Downloads/nova-cafe.html#">nova.cafe@gmail.com</a>
+      <a href="file:///C:/Users/rj/Downloads/nova-cafe_1.html#">اینستاگرام: nova.cafe.tehran@</a>
+      <a href="file:///C:/Users/rj/Downloads/nova-cafe_1.html#">nova.cafe@gmail.com</a>
     </div>
   </div>
 </div>
